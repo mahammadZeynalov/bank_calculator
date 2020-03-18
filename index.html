@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
+    <header>
+        <img src="pb_la_p2.jpg" alt='pasha'/>
+        <p>Калькулятор расчета банковского вклада с капитализацией и пополнением</p>
+    </header>
+    <div class="parent-container">
         <div class='single'>
             <label for='start-balance'>Начальная сумма вклада</label>
             <input type="number" id="start-balance">
@@ -30,8 +34,8 @@
             <label for='duration'>Срок вклада (дней)</label>
             <input type="number" id="duration">
         </div>
+        <button id="calculate">Рассчитать</button>
     </div>
-    <button id="calculate">Рассчитать</button>
     <p id="message">Введены некорректные данные</p>
     <script src="script.js"></script>
 </body>
