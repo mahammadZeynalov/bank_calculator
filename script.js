@@ -1,17 +1,28 @@
 let calculateButton = document.getElementById('calculate');
 let message = document.getElementById('message');
 
-function calculateDeposit(start, periodDeposit, percent, duration) {
-    start = +document.getElementById('start-balance').value;
-    periodDeposit = +document.getElementById('period-deposit').value;
-    percent = +(document.getElementById('percent').value / 12 / 100);
-    duration = Math.floor(document.getElementById('duration').value / 30);
+function isValid(start, periodDeposit, percent, duration) {
 
     if(start <= 0 || periodDeposit < 0 || percent > 99 || percent <= 0 || duration <=0 || duration % 1 != 0) {
         console.error('Некорректный ввод данных');
         message.style.visibility = 'visible';
-        return NaN;
+        return false;
     }
+    return true;
+}
+
+function calculateDeposit() {
+
+    let start = +document.getElementById('start-balance').value;
+    let periodDeposit = +document.getElementById('period-deposit').value;
+    let percent = +(document.getElementById('percent').value / 12 / 100);
+    let duration = Math.floor(document.getElementById('duration').value / 30);
+    
+    if(isValid(start, periodDeposit, percent, duration) == false) 
+    {
+        return;
+    }
+
     start = start * (1 + percent);
 
     for(let i = 1; i < duration; i++) {
