@@ -21,6 +21,7 @@ p {
     margin: 0 auto;
     width: 45%;
     background-color: white;
+    min-width: 440px;
 
 }
 .single {

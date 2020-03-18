@@ -13,26 +13,26 @@
     </header>
     <div class="parent-container">
         <div class='single'>
-            <label for='start-balance'>Начальная сумма вклада</label>
-            <input type="number" id="start-balance">
+            <label for='start-balance'>Начальная сумма вклада (<span>&#8381</span>)</label>
+            <input type="text" id="start-balance">
         </div>
         <div class='single'>
-            <label for='monthly-deposit'>Сумма
+            <label for='period-deposit'>Сумма
                 <select id="calculationType">
                     <option id="monthly">ежемесячного</option>
                     <option id="quartal">ежеквартального</option>
                     <option id="annually">ежегодного</option>
                   </select> 
-                  пополнения</label>
-            <input type="number" id="monthly-deposit"></td>
+                  пополнения (<span>&#8381</span>)</label>
+            <input type="text" id="period-deposit"></td>
         </div>
         <div class='single'>
             <label for='percent'>Процентная ставка (%)</label>
-            <input type="number" id="percent">
+            <input type="text" id="percent">
         </div>
         <div class='single'>
             <label for='duration'>Срок вклада (дней)</label>
-            <input type="number" id="duration">
+            <input type="text" id="duration">
         </div>
         <button id="calculate">Рассчитать</button>
     </div>

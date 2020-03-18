@@ -1,13 +1,13 @@
 let calculateButton = document.getElementById('calculate');
 let message = document.getElementById('message');
 
-function calculateDeposit(start, monthlyDeposit, percent, duration) {
+function calculateDeposit(start, periodDeposit, percent, duration) {
     start = +document.getElementById('start-balance').value;
-    monthlyDeposit = +document.getElementById('monthly-deposit').value;
+    periodDeposit = +document.getElementById('period-deposit').value;
     percent = +(document.getElementById('percent').value / 12 / 100);
     duration = Math.floor(document.getElementById('duration').value / 30);
 
-    if(start <= 0 || monthlyDeposit < 0 || percent <=0 || duration <=0 || duration % 1 != 0) {
+    if(start <= 0 || periodDeposit < 0 || percent <=0 || duration <=0 || duration % 1 != 0) {
         console.error('Некорректный ввод данных');
         message.style.visibility = 'visible';
         return NaN;
@@ -16,14 +16,14 @@ function calculateDeposit(start, monthlyDeposit, percent, duration) {
 
     for(let i = 1; i < duration; i++) {
         if(document.getElementById('monthly').selected == true) {
-            start += monthlyDeposit;
+            start += periodDeposit;
         } else if (document.getElementById('quartal') == true) {
             if((i + 1) % 4 == 0) {
-                start += monthlyDeposit;
+                start += periodDeposit;
             }
         } else if (document.getElementById('annually').selected == true) {
             if((i + 1) % 12 == 0) {
-                start += monthlyDeposit;
+                start += periodDeposit;
             }
         }
         start *= (1 + percent);
