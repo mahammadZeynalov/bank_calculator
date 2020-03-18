@@ -7,24 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <table>
-        <tr>
-            <td>Начальная сумма вклада</td>
-            <td><input type="number" id="start-balance"></td>
-        </tr>
-        <tr>
-            <td>Сумма ежемесячного пополнения</td>
-            <td><input type="number" id="monthly-deposit"></td>
-        </tr>
-        <tr>
-            <td>Процентная ставка (%)</td>
-            <td><input type="number" id="percent"></td>
-        </tr>
-        <tr>
-            <td>Срок вклада (дней)</td>
-            <td><input type="number" id="duration"></td>
-        </tr>
-    </table>
+    <div>
+        <div class='single'>
+            <label for='start-balance'>Начальная сумма вклада</label>
+            <input type="number" id="start-balance">
+        </div>
+        <div class='single'>
+            <label for='monthly-deposit'>Сумма
+                <select id="calculationType">
+                    <option id="monthly">ежемесячного</option>
+                    <option id="quartal">ежеквартального</option>
+                    <option id="annually">ежегодного</option>
+                  </select> 
+                  пополнения</label>
+            <input type="number" id="monthly-deposit"></td>
+        </div>
+        <div class='single'>
+            <label for='percent'>Процентная ставка (%)</label>
+            <input type="number" id="percent">
+        </div>
+        <div class='single'>
+            <label for='duration'>Срок вклада (дней)</label>
+            <input type="number" id="duration">
+        </div>
+    </div>
     <button id="calculate">Рассчитать</button>
     <p id="message">Введены некорректные данные</p>
     <script src="script.js"></script>

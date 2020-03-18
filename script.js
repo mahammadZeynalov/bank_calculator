@@ -7,7 +7,7 @@ function calculateDeposit(start, monthlyDeposit, percent, duration) {
     percent = +(document.getElementById('percent').value / 12 / 100);
     duration = Math.floor(document.getElementById('duration').value / 30);
 
-    if(start <= 0 || monthlyDeposit < 0 || percent <=0 || duration <=0){
+    if(start <= 0 || monthlyDeposit < 0 || percent <=0 || duration <=0 || duration % 1 != 0) {
         console.error('Некорректный ввод данных');
         message.style.visibility = 'visible';
         return NaN;
@@ -15,7 +15,17 @@ function calculateDeposit(start, monthlyDeposit, percent, duration) {
     start = start * (1 + percent);
 
     for(let i = 1; i < duration; i++) {
-        start += monthlyDeposit;
+        if(document.getElementById('monthly').selected == true) {
+            start += monthlyDeposit;
+        } else if (document.getElementById('quartal') == true) {
+            if((i + 1) % 4 == 0) {
+                start += monthlyDeposit;
+            }
+        } else if (document.getElementById('annually').selected == true) {
+            if((i + 1) % 12 == 0) {
+                start += monthlyDeposit;
+            }
+        }
         start *= (1 + percent);
         console.log(start);
     }

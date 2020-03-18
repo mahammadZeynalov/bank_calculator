@@ -2,12 +2,17 @@
     box-sizing: border-box;
     font-size: 20px;
 }
-td {
-    padding: 10px 5px 0 10px;
+
+.single {
+    display: flex;
+    margin-top: 10px;
 }
 
+label {
+    width: 400px;
+}
 button {
-    width: 573px;
+    width: 655px;
     background-color: green;
     color: white;
     padding: 10px 0;
