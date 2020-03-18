@@ -7,7 +7,7 @@ function calculateDeposit(start, periodDeposit, percent, duration) {
     percent = +(document.getElementById('percent').value / 12 / 100);
     duration = Math.floor(document.getElementById('duration').value / 30);
 
-    if(start <= 0 || periodDeposit < 0 || percent <=0 || duration <=0 || duration % 1 != 0) {
+    if(start <= 0 || periodDeposit < 0 || percent > 99 || percent <= 0 || duration <=0 || duration % 1 != 0) {
         console.error('Некорректный ввод данных');
         message.style.visibility = 'visible';
         return NaN;
@@ -29,6 +29,7 @@ function calculateDeposit(start, periodDeposit, percent, duration) {
         start *= (1 + percent);
         console.log(start);
     }
+    message.style.visibility = 'hidden';
     alert('Рассчитанный баланс по окончании срока ' + Math.round(start) + ' рублей');
     return start;
 }
