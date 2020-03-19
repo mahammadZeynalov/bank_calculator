@@ -2,16 +2,18 @@ let calculateButton = document.getElementById('calculate');
 let message = document.getElementById('message');
 
 function finalBalance() {
-    let start = +document.getElementById('start-balance').value;
-    let periodDeposit = +document.getElementById('period-deposit').value;
-    let percent = +(document.getElementById('percent').value / 12 / 100);
-    let duration = Math.floor(document.getElementById('duration').value / 30);
+    let start = Number(document.getElementById('start-balance').value);
+    let periodDeposit = Number(document.getElementById('period-deposit').value);
+    let percent = Number(document.getElementById('percent').value / 12 / 100);
+    let duration = Math.floor(Number(document.getElementById('duration').value) / 30);
 
     function isValid(start, periodDeposit, percent, duration) {
 
-        if(start <= 0 || periodDeposit < 0 || percent*1200 > 99 || percent*1200 <= 0 || duration <=0 || duration % 1 != 0) {
+        if(start <= 0 || periodDeposit < 0 || percent*1200 > 99 || percent*1200 <= 0 || duration <=0 || duration % 1 != 0 || isNaN(start) ||
+        isNaN(periodDeposit) || isNaN(percent) || isNaN(percent) || isNaN(duration)) {
             console.error('Некорректный ввод данных');
             message.style.visibility = 'visible';
+            console.log(start);
             return false;
         }
         return true;
