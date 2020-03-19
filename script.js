@@ -9,7 +9,7 @@ function finalBalance() {
 
     function isValid(start, periodDeposit, percent, duration) {
 
-        if(start <= 0 || periodDeposit < 0 || percent > 99 || percent <= 0 || duration <=0 || duration % 1 != 0) {
+        if(start <= 0 || periodDeposit < 0 || percent*1200 > 99 || percent*1200 <= 0 || duration <=0 || duration % 1 != 0) {
             console.error('Некорректный ввод данных');
             message.style.visibility = 'visible';
             return false;
