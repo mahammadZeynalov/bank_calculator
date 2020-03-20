@@ -12,7 +12,7 @@ function finalBalance() {
         if(start <= 0 || periodDeposit < 0 || percent*1200 > 99 || percent*1200 <= 0 || duration <=0 || duration % 1 != 0 || isNaN(start) ||
         isNaN(periodDeposit) || isNaN(percent) || isNaN(percent) || isNaN(duration)) {
             console.error('Некорректный ввод данных');
-            message.style.visibility = 'visible';
+            $("#message").show();
             console.log(start);
             return false;
         }
@@ -42,8 +42,9 @@ function finalBalance() {
             start *= (1 + percent);
             console.log(start);
         }
-        message.style.visibility = 'hidden';
-        alert('Рассчитанный баланс по окончании срока ' + Math.round(start) + ' рублей');
+        $("#message").hide();
+
+        setTimeout(function () { alert('Рассчитанный баланс по окончании срока ' + Math.round(start) + ' рублей'); }, 1);
         return start;
     }
     calculateDeposit(start, periodDeposit, percent, duration);
